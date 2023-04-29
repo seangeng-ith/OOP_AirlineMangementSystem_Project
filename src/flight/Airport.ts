@@ -1,5 +1,6 @@
 import { Airline } from "../Airline/AirLine";
 import { Booking } from "../Booking/Booking";
+import { Passenger } from "../passenger/Passenger";
 import { Gate } from "./Gate";
 import { Route } from "./Route";
 
@@ -18,13 +19,16 @@ export class Airport {
   addAirline(airline: Airline): void {
     this.airlineList.push(airline);
   }
-  getDetialPassenger(bookingNumber: string): undefined {
-    this.bookings.forEach((booking)=>{
-      if(booking.getreferenceNumber() === bookingNumber){
+  addBooking(booking: Booking): void {
+    this.bookings.push(booking);
+  }
+  getDetialPassenger(bookingNumber: string): Passenger | undefined {
+    for (let booking of this.bookings) {
+      if (booking.getreferenceNumber() === bookingNumber) {
         return booking.getpassenger()
       }
-    })
-    return undefined
-  }
+      return undefined
+    }
 
+  }
 }

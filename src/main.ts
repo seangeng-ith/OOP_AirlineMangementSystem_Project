@@ -97,7 +97,7 @@ let baggage5 = new Baggage(30, 90, tag5);
 let FrequentFlyer1 = new FrequentFlyer("SeangEng","Ith",FlyerStatus.GOLD)
 passenger1.setFrequentFlyer(FrequentFlyer1)
 // create flight
-let flight1 = new Flight('DL123', date1, date2, route1, route2, airline1,aeroplane2,gate1);
+let flight1 = new Flight('DL123', date1, date2, route1, route2, airline1,aeroplane1,gate1);
 let flight2 = new Flight('AA456', date2, date3, route2, route3, airline2,aeroplane1,gate2);
 let flight3 = new Flight('UA789', date3, date1, route3, route1, airline3,aeroplane7,gate3);
 let flight4 = new Flight('EK012', date1, date2, route1, route2, airline4,aeroplane6,gate2);
@@ -140,17 +140,27 @@ let booking2 = new Booking("KOPL889",trip2, passenger2);
 let booking3 = new Booking("KDIEM3",trip3, passenger3);
 let booking4 = new Booking("KIM09",trip4, passenger4);
 let booking5 = new Booking("EIUK90",trip5, passenger5);
+// add booking to airport 
+airport1.addBooking(booking1)
+// console.log(airport1)
 // add booking to airling 
 airline1.addBooking(booking1,booking2)
 airline2.addBooking(booking3,booking4)
 
+//1 . As an airport controller, I need to get the full details of a passenger’s trip from their Booking Reference Number (flights, bags, customer information…)
+console.log(airport1.getDetialPassenger(booking1.getreferenceNumber()))
+
 // 2 As an airline manager, I want to know for a given flight, how many passengers were booking return
 console.log(airline1.getBookingFlights(flight1))
+
 // 3 As an airline pilot, I want to know, for a given date, how many flights I have to join
 console.log(airline3.getFlight(pilot1,date1))
+
 //4 As an airline chef, I need to know, for a given flight, how many of each meal type I need to prepare.
 console.log(airline1.getMeal(flight1))
+
 //5 As an airline manager, I want to find out how much salary I pay all my employees.
 console.log(airline1.getAllSallary())
+
 //6 As a passenger, I want to know which gate my plane is waiting a
 console.log(flight1.getGate())
