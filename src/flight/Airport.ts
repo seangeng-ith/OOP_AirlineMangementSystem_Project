@@ -1,8 +1,9 @@
 import { Airline } from "../Airline/AirLine";
+import { Passenger } from "../passenger/Passenger";
 import { Route } from "./Route";
 
 export class Airport {
-  protected name: string;
+  public name: string;
   private code: string;
   private route: Route;
   private airlineList: Airline[] = [];
@@ -14,7 +15,7 @@ export class Airport {
   addAirline(airline: Airline): void {
     this.airlineList.push(airline);
   }
-  getDetialPassenger(bookingNumber: string): string {
+  getDetialPassenger(bookingNumber: string): Passenger|string {
     this.airlineList.forEach(airLine=>{
       airLine.getBooking().forEach(booking=>{
         if(booking.getreferenceNumber() == bookingNumber){

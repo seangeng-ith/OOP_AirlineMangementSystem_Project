@@ -4,10 +4,11 @@ export enum FareBasis{
     BusinessClass,
 }
 export class Seat {
-    private seat: String
-    private fareBasis: FareBasis
+    public seat: String
+    public fareBasis: FareBasis
     constructor (seat: String, fareBasis: FareBasis){
         this.seat = seat
         this.fareBasis = fareBasis
     }
+    
 }

@@ -7,8 +7,8 @@ export enum CategoryEmployeeType{
     FlyAttendant,
 }
 export class Crew extends Person{
-    protected jobTitle: CategoryEmployeeType;
-    protected salary: number;
+    private jobTitle: CategoryEmployeeType;
+    private salary: number;
     constructor (firstName: string, lastName: string, phone: string,gender: Gender, jobTitle: CategoryEmployeeType){
         super(firstName, lastName, phone,gender)
         this.jobTitle = jobTitle

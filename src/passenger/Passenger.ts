@@ -46,7 +46,7 @@ export class Passenger extends Person{
   getBagge():Baggage[]{
     return this.baggages
   }
-  getFlight(booking : Booking):undefined{
+  getFlight(booking : Booking):undefined|Flight{
     this.bookings.forEach(bookings => {
         if (bookings === booking){
           return bookings.getTrip().getflight()
