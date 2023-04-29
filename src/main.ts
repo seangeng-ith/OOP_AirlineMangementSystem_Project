@@ -140,16 +140,15 @@ let booking2 = new Booking("KOPL889",trip2, passenger2);
 let booking3 = new Booking("KDIEM3",trip3, passenger3);
 let booking4 = new Booking("KIM09",trip4, passenger4);
 let booking5 = new Booking("EIUK90",trip5, passenger5);
-// add booking to airport 
-airport1.addBooking(booking1)
-// console.log(airport1)
 // add booking to airling 
 airline1.addBooking(booking1,booking2)
 airline2.addBooking(booking3,booking4)
+// Added airline
+airport1.addAirline(airline1)
+airport2.addAirline(airline2)
 
-//1 . As an airport controller, I need to get the full details of a passenger’s trip from their Booking Reference Number (flights, bags, customer information…)
-console.log(airport1.getDetialPassenger(booking1.getreferenceNumber()))
-
+//1 get details passenger 
+console.log(airport2.getDetialPassenger(booking2.getreferenceNumber()));
 // 2 As an airline manager, I want to know for a given flight, how many passengers were booking return
 console.log(airline1.getBookingFlights(flight1))
 
